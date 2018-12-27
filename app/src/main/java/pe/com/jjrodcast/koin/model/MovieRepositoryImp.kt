@@ -4,7 +4,7 @@ import android.util.Log
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.rxkotlin.toObservable
 
-class MovieInteractorImp : MovieInteractor {
+class MovieRepositoryImp : MovieRepository {
 
     override fun getRemoteMovies(): ArrayList<Movie> {
 
@@ -22,8 +22,8 @@ class MovieInteractorImp : MovieInteractor {
         tempMovies.toObservable()
                 .subscribeBy(
                         onNext = { movies.add(it) },
-                        onError = { Log.e("MovieInteractorImp", it.printStackTrace().toString()) },
-                        onComplete = { Log.i("MovieInteractorImp", "onComplete") }
+                        onError = { Log.e("MovieRepositoryImp", it.printStackTrace().toString()) },
+                        onComplete = { Log.i("MovieRepositoryImp", "onComplete") }
                 )
 
         return movies

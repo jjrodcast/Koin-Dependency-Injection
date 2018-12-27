@@ -2,12 +2,11 @@ package pe.com.jjrodcast.koin
 
 import android.app.Application
 import org.koin.android.ext.android.startKoin
+import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
-import pe.com.jjrodcast.koin.model.MovieInteractor
-import pe.com.jjrodcast.koin.model.MovieInteractorImp
-import pe.com.jjrodcast.koin.presenter.MoviePresenter
-import pe.com.jjrodcast.koin.presenter.MoviePresenterImp
-import pe.com.jjrodcast.koin.view.MovieView
+import pe.com.jjrodcast.koin.model.MovieRepository
+import pe.com.jjrodcast.koin.model.MovieRepositoryImp
+import pe.com.jjrodcast.koin.viewmodel.MovieViewModel
 
 class BaseApplication : Application() {
 
@@ -19,7 +18,8 @@ class BaseApplication : Application() {
 
     private val appModule = module {
 
-        single<MovieInteractor> { MovieInteractorImp() }
-        factory<MoviePresenter> { (view: MovieView) -> MoviePresenterImp(view, get()) }
+        single<MovieRepository> { MovieRepositoryImp() }
+
+        viewModel { MovieViewModel(get()) }
     }
 }

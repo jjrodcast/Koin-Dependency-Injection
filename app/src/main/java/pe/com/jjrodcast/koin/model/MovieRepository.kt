@@ -1,6 +1,6 @@
 package pe.com.jjrodcast.koin.model
 
-interface MovieInteractor {
+interface MovieRepository {
 
     fun getRemoteMovies(): ArrayList<Movie>
 }
