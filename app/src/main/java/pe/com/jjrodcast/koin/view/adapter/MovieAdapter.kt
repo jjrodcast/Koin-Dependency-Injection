@@ -1,3 +1,9 @@
+/*
+ * Developed by Jorge Rodriguez on 29/12/18 01:05 PM
+ * Copyright (c) 2018 . All rights reserved.
+ * Last modified 01/12/18 09:47 PM
+ */
+
 package pe.com.jjrodcast.koin.view.adapter
 
 import android.support.v7.widget.RecyclerView
