@@ -6,9 +6,9 @@
 
 package pe.com.jjrodcast.koin.view
 
-import pe.com.jjrodcast.koin.model.Movie
+import pe.com.jjrodcast.koin.model.MovieEntity
 
 interface MovieView : BaseView {
 
-    fun showMovies(movies: ArrayList<Movie>)
+    fun showMovies(movies: ArrayList<MovieEntity>)
 }

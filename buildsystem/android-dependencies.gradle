@@ -1,0 +1,17 @@
+/*
+ * Developed by Jorge Rodriguez on 30/12/18 11:11 PM
+ * Copyright (c) 2018 . All rights reserved.
+ * Last modified 30/12/18 11:08 PM
+ */
+
+class AndroidProperties extends Expando {}
+
+ext.androidproperties = new AndroidProperties()
+
+ext {
+    androidproperties.compileSdkVersion = 28
+    androidproperties.minSdkVersion = 21
+    androidproperties.targetSdkVersion = 28
+    androidproperties.versionCode = 1
+    androidproperties.versionName = "1.0"
+}

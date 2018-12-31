@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_movie.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 import pe.com.jjrodcast.koin.R
-import pe.com.jjrodcast.koin.model.Movie
+import pe.com.jjrodcast.koin.model.MovieEntity
 import pe.com.jjrodcast.koin.presenter.MoviePresenter
 import pe.com.jjrodcast.koin.view.adapter.MovieAdapter
 import pe.com.jjrodcast.koin.view.decorator.CustomDecorator
@@ -32,7 +32,7 @@ class MovieActivity : AppCompatActivity(), MovieView {
         presenter.getMovies()
     }
 
-    override fun showMovies(movies: ArrayList<Movie>) {
+    override fun showMovies(movies: ArrayList<MovieEntity>) {
         adapter.addData(movies)
     }
 
@@ -43,5 +43,10 @@ class MovieActivity : AppCompatActivity(), MovieView {
         recyclerMovies.addItemDecoration(CustomDecorator(this, R.integer.offset))
         recyclerMovies.layoutManager = GridLayoutManager(this, 3)
         recyclerMovies.adapter = adapter
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
     }
 }

@@ -1,0 +1,15 @@
+/*
+ * Developed by Jorge Rodriguez on 31/12/18 01:48 AM
+ * Copyright (c) 2018 . All rights reserved.
+ * Last modified 31/12/18 01:48 AM
+ */
+
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation rxDependencies.rxKotlin
+    implementation project(':domain')
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

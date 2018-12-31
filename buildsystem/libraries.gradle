@@ -1,0 +1,62 @@
+/*
+ * Developed by Jorge Rodriguez on 30/12/18 11:15 PM
+ * Copyright (c) 2018 . All rights reserved.
+ * Last modified 30/12/18 11:15 PM
+ */
+ext {
+
+    // Library versions
+    supportVersion                  = '28.0.0'
+    supportConstraintVersion        = '1.1.3'
+    junitVersion                    = '4.12'
+    testRunnerVersion               = '1.0.2'
+    espressoVersion                 = '3.0.2'
+    koinVersion                     = '1.0.2'
+    rxAndroidVersion                = '2.1.0'
+    rxKotlinVersion                 = '2.3.0'
+    glideVersion                    = '4.8.0'
+
+    // Library packages
+    supportPackage                  = 'com.android.support'
+    supportConstraintPackage        = 'com.android.support.constraint'
+    junitPackage                    = 'junit'
+    testRunnerPackage               = 'com.android.support.test'
+    espressoPackage                 = 'com.android.support.test.espresso'
+    koinPackage                     = 'org.koin'
+    reactivePackage                 = 'io.reactivex.rxjava2'
+    glidePackage                    = 'com.github.bumptech.glide'
+
+    // Dependency creation
+    supportDependencies = [
+        appcompat:                  createDependency(supportPackage, 'appcompat-v7', supportVersion),
+        recyclerview:               createDependency(supportPackage, 'recyclerview-v7', supportVersion),
+        design:                     createDependency(supportPackage, 'design', supportVersion),
+        constraintLayout:           createDependency(supportConstraintPackage, 'constraint-layout', supportConstraintVersion)
+    ]
+
+     koinDependencies = [
+        koin:                       createDependency(koinPackage, 'koin-android', koinVersion),
+        koinScope:                  createDependency(koinPackage, 'koin-android-scope', koinVersion),
+
+    ]
+
+    glideDependencies = [
+        glide:                      createDependency(glidePackage, 'glide', glideVersion),
+        glideCompiler:              createDependency(glidePackage, 'compiler', glideVersion)
+    ]
+
+    rxDependencies = [
+        rxAndroid:                  createDependency(reactivePackage, 'rxandroid', rxAndroidVersion),
+        rxKotlin:                   createDependency(reactivePackage, 'rxkotlin', rxKotlinVersion)
+    ]
+
+    testDependencies = [
+        junit:                      createDependency(junitPackage, 'junit', junitVersion),
+        runner:                     createDependency(testRunnerPackage, 'runner', testRunnerVersion),
+        espresso:                   createDependency(espressoPackage, 'espresso-core', espressoVersion)
+    ]
+}
+
+static String createDependency(String androidPackage, String dependency, String version) {
+    return "${androidPackage}:${dependency}:${version}"
+}

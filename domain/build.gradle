@@ -1,0 +1,13 @@
+/*
+ * Developed by Jorge Rodriguez on 31/12/18 12:56 AM
+ * Copyright (c) 2018 . All rights reserved.
+ * Last modified 31/12/18 12:56 AM
+ */
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation rxDependencies.rxKotlin
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

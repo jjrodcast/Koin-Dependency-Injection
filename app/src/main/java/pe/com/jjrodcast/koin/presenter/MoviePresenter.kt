@@ -6,7 +6,8 @@
 
 package pe.com.jjrodcast.koin.presenter
 
-interface MoviePresenter {
+interface MoviePresenter : BasePresenter {
 
     fun getMovies()
+
 }

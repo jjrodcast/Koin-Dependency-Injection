@@ -13,12 +13,12 @@ import android.view.ViewGroup
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.item_movie.view.*
 import pe.com.jjrodcast.koin.R
-import pe.com.jjrodcast.koin.model.Movie
+import pe.com.jjrodcast.koin.model.MovieEntity
 import pe.com.jjrodcast.koin.utils.GlideApp
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
-    private val movies = arrayListOf<Movie>()
+    private val movies = arrayListOf<MovieEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
@@ -31,7 +31,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
         holder.bind(movies[position])
     }
 
-    fun addData(movies: ArrayList<Movie>) {
+    fun addData(movies: ArrayList<MovieEntity>) {
         this.movies.clear()
         this.movies.addAll(movies)
         notifyDataSetChanged()
@@ -39,7 +39,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(movie: Movie) = with(itemView) {
+        fun bind(movie: MovieEntity) = with(itemView) {
             GlideApp.with(itemView.context)
                 .load(movie.photo)
                 .centerCrop()
