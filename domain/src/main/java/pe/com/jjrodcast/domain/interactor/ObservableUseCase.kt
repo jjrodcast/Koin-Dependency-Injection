@@ -23,7 +23,7 @@ abstract class ObservableUseCase<T, in Params>
     open fun execute(observer: DisposableObserver<T>, params: Params? = null) {
         val singleThread = buildUseCaseObservable(params)
             .subscribeOn(Schedulers.io())
-            .subscribeOn(postExecutionThread.scheduler())
+            .observeOn(postExecutionThread.scheduler())
         addDisposable(singleThread.subscribeWith(observer))
     }
 
