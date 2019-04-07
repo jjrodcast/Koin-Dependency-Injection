@@ -12,6 +12,6 @@ ext {
     androidproperties.compileSdkVersion = 28
     androidproperties.minSdkVersion = 21
     androidproperties.targetSdkVersion = 28
-    androidproperties.versionCode = 1
-    androidproperties.versionName = "1.0"
+    androidproperties.versionCode = 2
+    androidproperties.versionName = "1.1"
 }

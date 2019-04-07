@@ -20,14 +20,14 @@ abstract class ObservableUseCase<T, in Params>
 
     protected abstract fun buildUseCaseObservable(params: Params? = null): Observable<T>
 
-    open fun execute(observer: DisposableObserver<T>, params: Params? = null) {
+    fun execute(observer: DisposableObserver<T>, params: Params? = null) {
         val singleThread = buildUseCaseObservable(params)
             .subscribeOn(Schedulers.io())
             .observeOn(postExecutionThread.scheduler())
         addDisposable(singleThread.subscribeWith(observer))
     }
 
-    fun addDisposable(disposable: Disposable) {
+    private fun addDisposable(disposable: Disposable) {
         disposables.add(disposable)
     }
 
